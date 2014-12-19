@@ -1,6 +1,6 @@
 {
   "name": "Imperium",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "src/imperium.js",
   "scripts": {
