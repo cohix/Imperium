@@ -31,13 +31,13 @@ node imperium.js (or forever start imperium.js) [also from the /src directory]
 ```
 
 ##Usage
-To use Imperium, first go through the configuration section below and get your ```config.json``` file exactly how you want it. Make sure you restart Imperium to load the changes. Afterwards, go to the ```posts ``` and ```pages``` folder to replace the default files with your own content. Make sure the file names have the ```Title_of_Page_or_Post.md``` format. After that, you can start exploring the ```theme``` folder and start tweaking the look and feel of the site. The CSS for the syntax highlighting is ```theme/styles/code.css```. You can swap this one out for any of the ones found in the [highlight.js github src](https://github.com/isagalaev/highlight.js/tree/master/src/styles). Just ensure it is still called code.css.
+To use Imperium, first go through the configuration section below and get your ```config.json``` file exactly how you want it. Make sure you restart Imperium to load the changes. Afterwards, go to the ```posts ``` and ```pages``` folder to replace the default files with your own content. Make sure the file names have the ```Title_of_Page_or_Post.md``` format. After that, you can start exploring the ```theme``` folder and start tweaking the look and feel of the site. The CSS for the syntax highlighting is ```theme/styles/code.css```. You can swap this one out for any of the ones found in the [highlight.js github src](https://github.com/isagalaev/highlight.js/tree/master/src/styles). Just ensure it is still named ```code.css```.
 
 ##Configuration
 Your Imperium instance is configured using a ```config.json``` file in the root Imperium directory. Here are the options.
 
 * siteTitle
-    - default: none
+    - default: "Imperium Site"
     - The title of the site. Can be inserted into the theme using ~siteTitle~
 
 * useHeader
@@ -61,7 +61,7 @@ Your Imperium instance is configured using a ```config.json``` file in the root 
     - Determines if the site will display the footer
 
 * footerBlurb
-    - default: "Imperium Site"
+    - default: "Site Powered by <a href='http://github.com/cohix/imperium'>Imperium</a>"
     - This field accepts and HTML string
     - Determines the text to display in the footer div
     - Can be inserted into theme using ~footerBlurb~
