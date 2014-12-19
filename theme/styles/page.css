@@ -1,0 +1,5 @@
+#pageContent {
+  width: 80%;
+  margin-left: 10%; }
+  #pageContent p, #pageContent h1, #pageContent h2, #pageContent h3, #pageContent h4, #pageContent h5, #pageContent h6 {
+    color: #fff; }

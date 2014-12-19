@@ -1,0 +1,74 @@
+body
+{
+	font-family: 'Open Sans', sans-serif;
+}
+
+img
+{
+	width: 90%;
+
+	margin: 15px;
+	margin-left: 5%;
+}
+
+a
+{
+	text-decoration: none;
+	color: #3498db;
+}
+
+p
+{
+	max-width: 90%;
+
+	margin-left: 5%;
+}
+
+#postContent > h1, #postContent > h2, #postContent > h3, #postContent > h4, #postContent > h5, #postContent > h6
+{
+	margin-left: 5%;
+}
+
+#pageContent > h1, #pageContent > h2, #pageContent > h3, #pageContent > h4, #pageContent > h5, #pageContent > h6
+{
+	margin-left: 5%;
+}
+
+ul, ol
+{
+	margin-left: 5%;
+}
+
+li
+{
+	max-width: 90%;
+}
+
+blockquote
+{
+	background-color: #999;
+  	padding: 10px;
+
+  	border-radius: 5px;
+
+  	max-width: 85%;
+  	margin-left: 5%;
+
+  	color: #fff;
+}
+
+.home-link
+{
+	font-size: 40px;
+	line-height: 0px;
+
+	vertical-align: middle;
+
+	margin: 0px;
+	padding: 0px;
+}
+
+.nav-link
+{
+	vertical-align: middle;
+}

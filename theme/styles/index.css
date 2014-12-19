@@ -1,0 +1,194 @@
+
+/*h1
+{
+	font-family: roboto;
+	font-weight: 300;
+}
+
+a
+{
+	color: #444;
+	text-decoration: none;
+}
+
+.postCellContainer
+{
+	width: 60%;
+
+	margin-left: 20%;
+
+	box-shadow: 10px 10px 20px #444444;
+}*/
+
+body {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  background-color: #222;
+  padding-bottom: 50px; }
+  body p, body h1, body h2, body h3, body h4, body h5, body h6, body ol, body ul, body li {
+    font-family: 'Roboto'; }
+  body a {
+    text-decoration: none;
+    color: #3498db; }
+
+#footerBlurb {
+  text-align: center;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 20px;
+  color: #fff;
+  font-weight: 100;
+  border-left: 3px #66CC66 solid;
+  border-right: 3px #66CC66 solid; }
+  @media (max-width: 900px) {
+    #footerBlurb {
+      width: 93.5%;
+      margin-left: 2%; } }
+
+.fragContainer {
+  background-size: 100%, 100%;
+  background-position: left top;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  padding-bottom: 50px; }
+  .fragContainer .fragHeader {
+    text-align: center;
+    max-width: 50%; }
+
+#headerContainer {
+  background-color: #222; }
+  #headerContainer img {
+    width: 40%;
+    margin-left: 28%;
+    margin-top: 20px; }
+    @media (max-width: 900px) {
+      #headerContainer img {
+        width: 90%;
+        margin-left: 5%; } }
+
+.stickyImg {
+  margin-bottom: 100px; }
+
+.stickyNav {
+  position: fixed;
+  top: -50px; }
+
+#navContainer {
+  background-color: rgba(34, 34, 34, 0.7);
+  width: 60%;
+  height: 10px;
+  overflow-y: hidden;
+  margin-left: 20%;
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: 3px #3498db solid;
+  border-right: 3px #3498db solid;
+  display: table;
+  table-layout: fixed;
+  text-align: center; }
+  #navContainer a {
+    margin: 0px;
+    padding: 0px;
+    display: table-cell;
+    font-size: 20px;
+    color: #e74c3c;
+    text-decoration: none; }
+    @media (max-width: 900px) {
+      #navContainer a {
+        display: static;
+        width: 50%;
+        margin-left: 0px;
+        float: left;
+        font-size: 15px; } }
+  @media (max-width: 900px) {
+    #navContainer #navBlog {
+      width: 100%;
+      text-align: center; } }
+  @media (max-width: 900px) {
+    #navContainer {
+      width: 95%;
+      margin-left: 2%; } }
+
+#loopContainer {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 50px;
+  padding-top: 20px;
+  overflow: auto;
+  margin-bottom: 0px; }
+  #loopContainer .postContainer {
+    background-position: top left;
+    background-size: 100% auto;
+    backgrount-repeat: no-repeat;
+    width: 40%;
+    height: 300px;
+    margin-left: 5%;
+    margin-bottom: 50px;
+    float: left;
+    border-radius: 2px; }
+    #loopContainer .postContainer .postTitle {
+      color: #000;
+      font-family: 'Roboto';
+      font-size: 25px;
+      text-decoration: none;
+      padding: 10px;
+      width: 60%;
+      margin-left: -10px;
+      margin-top: 50px;
+      background-color: rgba(200, 200, 200, 0.7);
+      border-radius: 2px;
+      box-shadow: 10px 10px 10px #333; }
+      @media (max-width: 900px) {
+        #loopContainer .postContainer .postTitle {
+          margin-left: 10px;
+          margin-top: 10px; } }
+    @media (max-width: 900px) {
+      #loopContainer .postContainer {
+        float: none;
+        width: 95%;
+        height: 200px;
+        margin-left: 2%; } }
+
+#pageContent, #postContent {
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 50px;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-left: 3px #fff solid;
+  border-right: 3px #fff solid; }
+  #pageContent p, #pageContent h1, #pageContent h2, #pageContent h3, #pageContent h4, #pageContent h5, #pageContent h6, #pageContent ul, #pageContent ol, #pageContent li, #postContent p, #postContent h1, #postContent h2, #postContent h3, #postContent h4, #postContent h5, #postContent h6, #postContent ul, #postContent ol, #postContent li {
+    color: #fff;
+    max-width: 95%;
+    margin-left: 2%; }
+  #pageContent img, #postContent img {
+    margin-left: 20%;
+    height: auto;
+    width: auto;
+    max-width: 60%;
+    margin-bottom: 20px; }
+    @media (max-width: 900px) {
+      #pageContent img, #postContent img {
+        max-width: 95%;
+        margin-left: 2%; } }
+  #pageContent li, #pageContent ol, #pageContent ul, #postContent li, #postContent ol, #postContent ul {
+    margin-left: 5%; }
+  #pageContent .pageTitle, #postContent .pageTitle {
+    color: #3498db;
+    text-align: center;
+    font-size: 40px; }
+  @media (max-width: 900px) {
+    #pageContent, #postContent {
+      width: 95%;
+      margin-left: 2%; } }
+
+.postCellImg
+{
+  max-width: 100%;
+}

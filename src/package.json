@@ -1,0 +1,22 @@
+{
+  "name": "NCMS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.0.3",
+    "express": "^4.10.4",
+    "highlight.js": "^8.4.0",
+    "marked": "^0.3.2",
+    "mongodb": "^1.4.23",
+    "morgan": "^1.5.0",
+    "serve-favicon": "^2.1.7",
+    "validator": "^3.24.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+	"siteTitle": "Imperium Site",
+
+
+	"useHeader": true,
+
+	"homeLinkColor": "red",
+
+	"headerLinkColor": "blue",
+
+	"homeLink": "Imperium",
+
+
+	"useFooter": true,
+
+	"footerBlurb": "Site Powered by <a href='http://github.com/cohix/imperium'>Imperium</a>",
+
+
+	"useSidebar": false,
+
+
+	"useBanner": true,
+
+	"bannerAboveNav": false,
+
+
+	"pageOrder": ["About"]
+
+	
+}

@@ -1,0 +1,141 @@
+
+html body
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+.container
+{
+	margin: 20px;
+}
+
+.banner
+{
+	height: 250px;
+
+	width: 100%;
+
+	text-align: center;
+
+	background-color: #007A54;
+
+	display: table;
+	table-layout: fixed;
+}
+
+.banner-title
+{
+	font-size: 60px;
+	color: #fff;
+
+	display: table-cell;
+	vertical-align: middle;
+
+	margin: 0px;
+}
+
+.text-center
+{
+	text-align: center;
+}
+
+.full-height
+{
+	height: 100%;
+}
+
+.forty
+{
+	width: 40%;
+
+	margin-left: 30%;
+}
+
+.sixty
+{
+	width: 60%;
+
+	margin-left: 20%;
+}
+
+.eighty
+{
+	width: 80%;
+
+	margin-left: 10%;
+}
+
+.hundred
+{
+	width: 100%;
+
+	margin-left: 0%;
+}
+
+.fancy
+{
+	border-radius: 3px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: #999;
+}
+
+.bot-border
+{
+	border-bottom: 1px solid #999;
+}
+
+.top-border
+{
+	border-top: 1px solid #999;
+}
+
+.left-border
+{
+	border-left: 1px solid #999;
+}
+
+.right-border
+{
+	border-right: 1px solid #999;
+}
+
+.table
+{
+	display: table;
+	table-layout: fixed;
+}
+
+.cell
+{
+	display: table-cell;
+
+	text-align: center;
+}
+
+.row
+{
+	display: table-row;
+}
+
+.red
+{
+	color: rgb(243, 98, 86);
+}
+
+.blue
+{
+	color: rgb(66, 150, 171);
+}
+
+.green
+{
+	color: #007A54;
+}
+
+.purple
+{
+	color: #8e44ad;
+}
