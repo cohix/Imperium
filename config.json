@@ -1,5 +1,5 @@
 {
-	"siteTitle": "Imperium Site",
+	"siteTitle": "Connor Hicks",
 
 
 	"useHeader": true,
@@ -8,12 +8,12 @@
 
 	"headerLinkColor": "blue",
 
-	"homeLink": "Imperium",
+	"homeLink": "CH",
 
 
 	"useFooter": true,
 
-	"footerBlurb": "Site Powered by <a href='http://github.com/cohix/imperium'>Imperium</a>",
+	"footerBlurb": "Programming, Technology, Miscellaneous <br> Copyright Connor Hicks 2014",
 
 
 	"useSidebar": false,
@@ -24,7 +24,7 @@
 	"bannerAboveNav": false,
 
 
-	"pageOrder": ["About"]
+	"pageOrder": ["About", "Contact", "Resume", "Imperium"]
 
 	
 }

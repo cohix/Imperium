@@ -1,1 +1,0 @@
-This site is powered by the <a href = 'http://github.com/cohix/imperium'> Imperium </a> Content Management Platform. It's creator, the handsome Connor Hicks, can be found at <a href = 'http://cohix.ca'>cohix.ca</a> or <a href = 'http://twitter.com/cohix'> @cohix </a>, where he writes about his internship at WordPress, and random coding things.
