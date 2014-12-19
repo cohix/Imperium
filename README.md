@@ -20,7 +20,7 @@ This product is still in its early stages of development. The documentation is n
     * Optional MongoDB cache for maximum performance (Coming Soon!)
     * Minimal dependencies - install in < 10sec
     * Beautiful and (soon to be) responsive default theme
-    * Included CSS framework (```theme/styles/imperium.css```) for HTML engine integration
+    * Included barebones CSS framework (theme/styles/imperium.css) for HTML engine integration
 
 ##Installation and Running
 Seriously, it takes only 3 bash commands to get Imperium up and running:
