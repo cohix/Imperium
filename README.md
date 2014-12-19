@@ -17,20 +17,24 @@ This product is still in its early stages of development. The documentation is n
     * Full MarkDown parsing and code highlighting
     * Flat file cms - posts are .md files in a single folder - Imperium will organize them and display them for you... top level pages are the same!
     * Themeable using html, css, and Imperium '~' syntax
-    * Optional MongoDB cache for maximum performance
+    * Optional MongoDB cache for maximum performance (Coming Soon!)
     * Minimal dependencies - install in < 10sec
-    * Beautiful and responsive default theme
+    * Beautiful and (soon to be) responsive default theme
+    * Included CSS framework (```theme/styles/imperium.css```) for HTML engine integration
 
 ##Installation and Running
 Seriously, it takes only 3 bash commands to get Imperium up and running:
 ```bash
 git clone https://github.com/cohix/Imperium.git
-npm install
-node imperium.js (or forever start imperium.js)
+npm install (from the /src directory)
+node imperium.js (or forever start imperium.js) [also from the /src directory]
 ```
 
+##Usage
+To use Imperium, first go through the configuration section below and get your ```config.json``` file exactly how you want it. Make sure you restart Imperium to load the changes. Afterwards, go to the ```posts ``` and ```pages``` folder to replace the default files with your own content. Make sure the file names have the ```Title_of_Page_or_Post.md``` format. After that, you can start exploring the ```theme``` folder and start tweaking the look and feel of the site. The CSS for the syntax highlighting is ```theme/styles/code.css```. You can swap this one out for any of the ones found in the [highlight.js github src](https://github.com/isagalaev/highlight.js/tree/master/src/styles). Just ensure it is still called code.css.
+
 ##Configuration
-Your Imperium instance is configured using a ```config.json``` file in the root of the Imperium directory. Here are the options.
+Your Imperium instance is configured using a ```config.json``` file in the root Imperium directory. Here are the options.
 
 * siteTitle
     - default: none
