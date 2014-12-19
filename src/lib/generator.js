@@ -53,7 +53,7 @@ marked.setOptions({
 var generateFrontPage = function(pageNum, callback)
 {
 	var head = fs.readFileSync("../theme/head.html");
-	var sidebar = fs.readFileSync("../theme/sidebar.html");
+	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
 	var header = '';
 	var banner = '';
 	var sidebar = '';
@@ -99,7 +99,7 @@ var generateFrontPage = function(pageNum, callback)
 var generateTLPage = function(name, callback)
 {
 	var head = fs.readFileSync("../theme/head.html");
-	var sidebar = fs.readFileSync("../theme/sidebar.html");
+	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
 	var header = '';
 	var banner = '';
 	var sidebar = '';
@@ -146,7 +146,7 @@ var generateTLPage = function(name, callback)
 var generatePost = function(name, callback)
 {
 	var head = fs.readFileSync("../theme/head.html");
-	var sidebar = fs.readFileSync("../theme/sidebar.html");
+	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
 	var header = '';
 	var banner = '';
 	var sidebar = '';
@@ -284,7 +284,7 @@ var generatePostsList = function(posts, pageNum)
 
 var generateHeader = function()
 {
-	var headerHtml = fs.readFileSync("../theme/header.html", "utf-8");
+	var headerHtml = fs.readFileSync("../theme/cont/header.html", "utf-8");
 	var linkHtml = fs.readFileSync('../theme/frag/headerLink.html', "utf-8");
 
 	var pages = generatePageLinks();
@@ -344,7 +344,7 @@ var generatePaginationLinks = function(pageNum)
 
 var generateBanner = function(title)
 {
-	var banner = fs.readFileSync("../theme/frag/banner.html", "utf-8");
+	var banner = fs.readFileSync("../theme/cont/banner.html", "utf-8");
 
 	if(banner)
 	{
@@ -360,7 +360,7 @@ var generateBanner = function(title)
 
 var generateFooter = function()
 {
-	var footer = fs.readFileSync("../theme/footer.html", "utf-8");
+	var footer = fs.readFileSync("../theme/cont/footer.html", "utf-8");
 
 	if(footer)
 	{
