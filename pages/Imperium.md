@@ -12,13 +12,14 @@ Imperium is a lightweight content management system that gives you **absolute po
 * Full MarkDown parsing and code highlighting
 * Flat file cms - posts are .md files in a single folder - Imperium will organize them and display them for you... top level pages are the same!
 * Themeable using html, css, and Imperium '~' syntax
-* Optional MongoDB cache for maximum performance
+* Optional MongoDB cache for maximum performance (Coming Soon!)
 * Minimal dependencies - install in < 10sec
-* Beautiful and responsive default theme
+* Beautiful and (soon to be) responsive default theme
+* Included barebones CSS framework (theme/styles/imperium.css) for HTML engine integration
 
 To learn more about my open-source CMS, visit the GitHub page. Don't hesitate to fork and hack away!
 
-<a href = 'http://github.com/cohix/ncms'> NCMS on GitHub </a>
+<a href = 'http://github.com/cohix/Imperium'> Imperium on GitHub </a>
 
 Cheers!
 -CH
