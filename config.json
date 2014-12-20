@@ -16,7 +16,7 @@
 	"footerBlurb": "Site Powered by <a href='http://github.com/cohix/imperium'>Imperium</a>",
 
 
-	"useSidebar": true,
+	"useSidebar": false,
 
 
 	"useBanner": true,

@@ -53,10 +53,9 @@ marked.setOptions({
 var generateFrontPage = function(pageNum, callback)
 {
 	var head = fs.readFileSync("../theme/head.html");
-	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
+	var sidebar = fs.readFileSync("../theme/cont/sidebar.html", "utf-8");
 	var header = '';
 	var banner = '';
-	var sidebar = '';
 	var footer = '';
 	var postsHtml = '';
 
@@ -105,10 +104,9 @@ var generateFrontPage = function(pageNum, callback)
 var generateTLPage = function(name, callback)
 {
 	var head = fs.readFileSync("../theme/head.html");
-	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
+	var sidebar = fs.readFileSync("../theme/cont/sidebar.html", "utf-8");
 	var header = '';
 	var banner = '';
-	var sidebar = '';
 	var footer = '';
 	var postsHtml = '';
 	
@@ -155,10 +153,9 @@ var generateTLPage = function(name, callback)
 var generatePost = function(name, callback)
 {
 	var head = fs.readFileSync("../theme/head.html");
-	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
+	var sidebar = fs.readFileSync("../theme/cont/sidebar.html", "utf-8");
 	var header = '';
 	var banner = '';
-	var sidebar = '';
 	var footer = '';
 	var postsHtml = '';
 	
