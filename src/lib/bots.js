@@ -7,10 +7,13 @@ var getPosts = function(fromIndex, toIndex, callback)
 	{
 		if(!err)
 		{
-			// console.log("Length: " + files.length + " From: " + fromIndex + " To: " + toIndex);
-
-			if(files.indexOf(".DS_Store") > -1) 
-				files.splice(files.indexOf(".DS_Store"), 1);
+			for(var i = 0; i < files.length; i++)
+			{
+				if(files[i].substring(0, 1) == '_' || files[i] == '.DS_Store')
+				{
+					files.splice(i, 1); //remove the draft or the .DS_Store
+				}
+			}
 
 			files.sort(function(a, b) 
 			{
@@ -63,19 +66,27 @@ var getPageContent = function(name, callback)
 
 var getPostContent = function(name, callback)
 {
-	var file = '../posts/' + name + '.md';
-
-	fs.readFile(file, 'utf-8', function(err, data)
+	if(name.substring(0, 1) != '_') //Don't allow drafts to be read
 	{
-		if(!err)
+		var file = '../posts/' + name + '.md';
+
+		fs.readFile(file, 'utf-8', function(err, data)
 		{
-			callback(data);
-		}
-		else
-		{
-			callback("#404: Post not found\nPlease check the url!");
-		}
-	});
+			if(!err)
+			{
+				callback(data);
+			}
+			else
+			{
+				callback("#404: Post not found\nPlease check the url!");
+			}
+		});
+	}
+	else
+	{
+		callback("#404: Post not found\nPlease check the url!");
+	}
+
 }
 
 var loadConfigFile = function(callback)
