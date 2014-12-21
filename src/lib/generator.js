@@ -56,7 +56,6 @@ var generateFrontPage = function(pageNum, callback)
 	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
 	var header = '';
 	var banner = '';
-	var sidebar = '';
 	var footer = '';
 	var postsHtml = '';
 
@@ -77,6 +76,12 @@ var generateFrontPage = function(pageNum, callback)
 
 		if(banner != -1) // -1 indicates that fs failed in generateBanner
 			if(config['bannerAboveNav'] == false) html += banner;
+
+		console.log("Sidebar: " + sidebar);
+		console.log("Config: " + config['useSidebar']);
+
+		if(sidebar != '')
+			if(config['useSidebar'] == true) html += sidebar;
 
 		postsHtml = generatePostsList( posts['posts'], pageNum );
 
@@ -102,7 +107,6 @@ var generateTLPage = function(name, callback)
 	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
 	var header = '';
 	var banner = '';
-	var sidebar = '';
 	var footer = '';
 	var postsHtml = '';
 	
@@ -124,6 +128,9 @@ var generateTLPage = function(name, callback)
 
 		if(banner != -1) // -1 indicates that fs failed in generateBanner
 			if(config['bannerAboveNav'] == false) html += banner;
+
+		if(sidebar != '')
+			if(config['useSidebar'] == true) html += sidebar;
 
 		var pageHtml = generatePageContent( name, pageString );
 
@@ -149,7 +156,6 @@ var generatePost = function(name, callback)
 	var sidebar = fs.readFileSync("../theme/cont/sidebar.html");
 	var header = '';
 	var banner = '';
-	var sidebar = '';
 	var footer = '';
 	var postsHtml = '';
 	
@@ -173,6 +179,9 @@ var generatePost = function(name, callback)
 
 		if(banner != -1) // -1 indicates that fs failed in generateBanner
 			if(config['bannerAboveNav'] == false) html += banner;
+
+		if(sidebar != '')
+			if(config['useSidebar'] == true) html += sidebar;
 
 		var postHtml = generatePostContent( name, pageString );
 
