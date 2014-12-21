@@ -1,5 +1,5 @@
 <img src = 'http://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2000px-Node.js_logo.svg.png'> </img>
- 
+
 <br>
 
 To start off my series of NodeJS posts, I want to start with one of the most popular libraries, ExpressJS. This library is so popular that it is almost considered its own product. You'll hear people talk about the MEAN stack, which is a short way of saying you use MongoDB, ExpressJS, AngularJS, and NodeJS as your back-to-front solution. As these tutorials progress I will make my way through this stack, with one difference. I am not an AngularJS developer, I work mainly on the back-end, but when I do front-end work, I opt for Twitter's Bootstrap framework. We'll talk more about the front end later, for now let's talk about NodeJS and ExpressJS
