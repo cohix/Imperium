@@ -387,7 +387,7 @@ var generateNextPrevLinks = function(name) //TODO: Make this faster. It's based 
        		prev = files[index - 1];
 
 
- 		if(prev != '')
+ 		if(prev != '' && prev != undefined)
  		{
  			var url = prev.substring( 0, prev.indexOf('.') ); //remove file extension
 			var prevTitle = url.replace(/_/g, " ") //replace underscores with spaces
@@ -397,7 +397,7 @@ var generateNextPrevLinks = function(name) //TODO: Make this faster. It's based 
  		else
  			prevHtml = "<a class = 'cell' id = 'prevLink' href = '/'><h3>Home</h3></a>";
 
- 		if(next != '')
+ 		if(next != '' && next != undefined)
  		{
 			var url = next.substring( 0, next.indexOf('.') ); //remove file extension
 			var nextTitle = url.replace(/_/g, " ") //replace underscores with spaces
