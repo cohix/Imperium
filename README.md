@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/cohix/Imperium.png?label=ready&title=Ready)](https://waffle.io/cohix/Imperium)
 
 #im·pe·ri·um
 ####/ˌimˈpirēəm/
