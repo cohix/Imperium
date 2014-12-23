@@ -24,7 +24,8 @@
 	"bannerAboveNav": false,
 
 
-	"pageOrder": ["About"]
+	"pageOrder": ["About"],
 
+	"serverPort": 80
 	
 }

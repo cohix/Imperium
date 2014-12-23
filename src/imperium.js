@@ -19,9 +19,34 @@ var generator = require('./lib/generator.js');
 /////////////////////
 var app = express();
 
-app.use(favicon('./favicon.ico')); // default is a transparent favicon
+app.use(favicon('./favicon.ico')); // default is an "Imperium <3 U" favicon
 
 app.use(morgan('dev'));
+
+
+//////////////////////
+//NCMS Configuration//
+//////////////////////
+
+var config = {};
+
+bots.loadConfigFile(function(configJson)
+{
+	if(configJson['config'] == false)
+	{
+		console.log("\n\n### NCMS requires a config.json file... please create one ###\n\n".red);
+		process.exit(1);
+	}
+
+	else
+	{
+		console.log("\n\n### Config File Loaded Successfully ###".magenta);
+		config = configJson;
+
+		generator.loadConfigIntoGenerator(config);
+		listen(config['serverPort']);
+	}
+});
 
 
 //////////
@@ -126,9 +151,18 @@ app.get("/*", function(req, res)
 
 });
 
+var listen = function(portNum)
+{
+	if(validator.isInt(portNum) )
+	{
+		app.listen(portNum);
+		console.log(colors.green("\n\n##### Starting Imperium Server ##### \n##### Listening on :" + portNum + " #####\n\n") );
+	}
+	else
+	{
+		console.log(colors.red("\n\nInvalid port setting: '" + portNum + "'; Please check config.json\n\n") );
+	}
+}
 
-app.listen(80);
-
-console.log("\n\n##### Starting Imperium Server ##### \nListening on :80\n\n".green);
 
 

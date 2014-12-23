@@ -79,6 +79,10 @@ Your Imperium instance is configured using a ```config.json``` file in the root 
     - The HTML engine will put the banner below the nav bar by default, but you can choose to put it above the nav.
 
 * pageOrder (array) 
-    * The pages to be displayed in the nav bar.
-    * Example: ["About", "Contact", "Resume", "Imperium"]
-    * These will be converted to file names: i.e. "Buy Tickets" will be converted to "Buy_Tickets.md", so ensure you have a .md file in the /pages folder to match each page in the nav
+    - The pages to be displayed in the nav bar.
+    - Example: ["About", "Contact", "Resume", "Imperium"]
+    - These will be converted to file names: i.e. "Buy Tickets" will be converted to "Buy_Tickets.md", so ensure you have a .md file in the /pages folder to match each page in the nav
+
+* serverPort
+    - default: 80
+    - Port to run the server on. Must be an integer.

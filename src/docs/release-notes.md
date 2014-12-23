@@ -8,3 +8,4 @@
     - First/last posts will get links to Home instead. 
     - The links have class = 'cell' so they can be put in a display: table div. 
 * Protip: add class = 'container hundred table' to get a div that is full-width and acts as a table (requires imperium.css).
+* Added configurable port. The port will be loaded at startup and applied to the server application.
