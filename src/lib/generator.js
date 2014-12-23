@@ -11,27 +11,7 @@ var hl = require('highlight.js');
 var first = "<!DOCTYPE html>\n<html>";
 var bodyStart = "\t<body>";
 var last = "\t</body>\n</html>"
-
-//////////////////////
-//NCMS Configuration//
-//////////////////////
-
-var config = {};
-
-bots.loadConfigFile(function(configJson)
-{
-	if(configJson['config'] == false)
-	{
-		console.log("### NCMS requires a config.json file... please create one ###\n\n".red);
-		process.exit(1);
-	}
-
-	else
-	{
-		console.log("### Config File Loaded Successfully ###".magenta);
-		config = configJson;
-	}
-});
+var config = {}; //This will be populated fom imperium.js once config.json is loaded on startup
 
 
 /////////////////////////////////
@@ -108,7 +88,7 @@ var generateTLPage = function(name, callback)
 	var header = '';
 	var banner = '';
 	var footer = '';
-	var postsHtml = '';
+	var pageHtml = '';
 	
 	var html = first + head + bodyStart;
 
@@ -132,7 +112,7 @@ var generateTLPage = function(name, callback)
 		if(sidebar != '')
 			if(config['useSidebar'] == true) html += sidebar;
 
-		var pageHtml = generatePageContent( name, pageString );
+		pageHtml = generatePageContent( name, pageString );
 
 		if(pageHtml != -1) // -1 indicates that fs failed in generatePostsList
 			html += pageHtml;
@@ -465,10 +445,16 @@ var generatePageLinks = function()
    	return retObj;
 }
 
+var loadConfigIntoGenerator = function(configObj)
+{
+	config = configObj;
+}
+
 
 module.exports.frontPage = generateFrontPage;
 module.exports.TLPage = generateTLPage;
 module.exports.post = generatePost;
+module.exports.loadConfigIntoGenerator = loadConfigIntoGenerator;
 
 
 

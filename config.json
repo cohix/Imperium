@@ -26,5 +26,6 @@
 
 	"pageOrder": ["About", "Contact", "Resume", "Imperium"]
 
+	"serverPort": 80
 	
 }
