@@ -88,7 +88,7 @@ var generateTLPage = function(name, callback)
 	var header = '';
 	var banner = '';
 	var footer = '';
-	var postsHtml = '';
+	var pageHtml = '';
 	
 	var html = first + head + bodyStart;
 
@@ -112,7 +112,7 @@ var generateTLPage = function(name, callback)
 		if(sidebar != '')
 			if(config['useSidebar'] == true) html += sidebar;
 
-		var pageHtml = generatePageContent( name, pageString );
+		pageHtml = generatePageContent( name, pageString );
 
 		if(pageHtml != -1) // -1 indicates that fs failed in generatePostsList
 			html += pageHtml;
