@@ -1,5 +1,18 @@
 
 var fs = require('fs');
+var fourOhFour = '';
+
+fs.readFile('404.md', 'utf-8', function(err, data)
+{
+	if(!err)
+	{
+		fourOhFour = data;
+	}
+	else
+	{
+		fourOhFour = '#404: Post not found\nPlease check the url!';
+	}
+});
 
 var getPosts = function(fromIndex, toIndex, callback)
 {
@@ -59,7 +72,7 @@ var getPageContent = function(name, callback)
 		}
 		else
 		{
-			callback("#404: Page not found\nPlease check the url!");
+			callback(fourOhFour);
 		}
 	});
 }
@@ -78,13 +91,13 @@ var getPostContent = function(name, callback)
 			}
 			else
 			{
-				callback("#404: Post not found\nPlease check the url!");
+				callback(fourOhFour);
 			}
 		});
 	}
 	else
 	{
-		callback("#404: Post not found\nPlease check the url!");
+		callback(fourOhFour);
 	}
 
 }
