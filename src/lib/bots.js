@@ -14,7 +14,7 @@ var getPosts = function(fromIndex, toIndex, callback)
 
 			files.sort(function(a, b) 
 			{
-               return fs.statSync("../posts/" + b).mtime.getTime() - fs.statSync("../posts/" + a).mtime.getTime();
+               return fs.statSync("../posts/" + b).ctime.getTime() - fs.statSync("../posts/" + a).ctime.getTime();
            	});
 
            	files = files.slice(fromIndex, toIndex);
