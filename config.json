@@ -24,7 +24,8 @@
 	"bannerAboveNav": false,
 
 
-	"pageOrder": ["About", "Contact", "Resume", "Imperium"]
+	"pageOrder": ["About", "Contact", "Resume", "Imperium"],
 
+	"serverPort": 80
 	
 }

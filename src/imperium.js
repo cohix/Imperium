@@ -19,9 +19,34 @@ var generator = require('./lib/generator.js');
 /////////////////////
 var app = express();
 
-app.use(favicon('./favicon.ico')); // default is a transparent favicon
+app.use(favicon('./favicon.ico')); // default is an "Imperium <3 U" favicon
 
 app.use(morgan('dev'));
+
+
+//////////////////////
+//NCMS Configuration//
+//////////////////////
+
+var config = {};
+
+bots.loadConfigFile(function(configJson)
+{
+	if(configJson['config'] == false)
+	{
+		console.log("\n\n### NCMS requires a config.json file... please create one ###\n\n".red);
+		process.exit(1);
+	}
+
+	else
+	{
+		console.log("\n\n### Config File Loaded Successfully ###".magenta);
+		config = configJson;
+
+		generator.loadConfigIntoGenerator(config);
+		listen(config['serverPort']);
+	}
+});
 
 
 //////////
@@ -44,7 +69,7 @@ app.get('/posts/*', function(req, res)
 {
 	//find and display post here
 
-	generator.post(req.url.substring(7), function(page)
+	generator.post(req.url.substring(req.url.lastIndexOf('/')+1), function(page)
 	{
 		res.setHeader('Content-Type', 'text/html');
 
@@ -54,7 +79,10 @@ app.get('/posts/*', function(req, res)
 
 app.get('/theme/styles/*', function(req, res)
 {
-	fs.readFile('..' + req.url, function(err, data)
+	var filename = req.url.substring(req.url.lastIndexOf('/')+1); //get the file name only, prevents directory traversal
+	console.log("File: " + filename);
+	
+	fs.readFile('../theme/styles/' + filename, function(err, data)
 	{
 		if(!err)
 		{
@@ -71,7 +99,10 @@ app.get('/theme/styles/*', function(req, res)
 
 app.get('/theme/scripts/*', function(req, res)
 {
-	fs.readFile('..' + req.url, function(err, data)
+	var filename = req.url.substring(req.url.lastIndexOf('/')+1); //get the file name only, prevents directory traversal
+	console.log("File: " + filename);
+
+	fs.readFile('../theme/scripts/' + filename, function(err, data)
 	{
 		if(!err)
 		{
@@ -88,7 +119,7 @@ app.get('/theme/scripts/*', function(req, res)
 
 app.get('/page/*', function(req, res)
 {
-	var page = req.url.substring(6);
+	var page = req.url.substring(req.url.lastIndexOf('/')+1);
 
 	if(validator.isInt(page))
 	{
@@ -115,7 +146,7 @@ app.get('/page/*', function(req, res)
 app.get("/*", function(req, res)
 {
 	//generate top-level page here
-	var page = req.url.substring(1);
+	var page = req.url.substring(req.url.lastIndexOf('/')+1);
 
 	generator.TLPage(page, function(html)
 	{
@@ -126,9 +157,18 @@ app.get("/*", function(req, res)
 
 });
 
+var listen = function(portNum)
+{
+	if(validator.isInt(portNum) )
+	{
+		app.listen(portNum);
+		console.log(colors.green("\n\n##### Starting Imperium Server ##### \n##### Listening on :" + portNum + " #####\n\n") );
+	}
+	else
+	{
+		console.log(colors.red("\n\nInvalid port setting: '" + portNum + "'; Please check config.json\n\n") );
+	}
+}
 
-app.listen(80);
-
-console.log("\n\n##### Starting Imperium Server ##### \nListening on :80\n\n".green);
 
 

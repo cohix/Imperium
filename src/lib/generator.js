@@ -11,27 +11,7 @@ var hl = require('highlight.js');
 var first = "<!DOCTYPE html>\n<html>";
 var bodyStart = "\t<body>";
 var last = "\t</body>\n</html>"
-
-//////////////////////
-//NCMS Configuration//
-//////////////////////
-
-var config = {};
-
-bots.loadConfigFile(function(configJson)
-{
-	if(configJson['config'] == false)
-	{
-		console.log("### NCMS requires a config.json file... please create one ###\n\n".red);
-		process.exit(1);
-	}
-
-	else
-	{
-		console.log("### Config File Loaded Successfully ###".magenta);
-		config = configJson;
-	}
-});
+var config = {}; //This will be populated fom imperium.js once config.json is loaded on startup
 
 
 /////////////////////////////////
@@ -108,7 +88,7 @@ var generateTLPage = function(name, callback)
 	var header = '';
 	var banner = '';
 	var footer = '';
-	var postsHtml = '';
+	var pageHtml = '';
 	
 	var html = first + head + bodyStart;
 
@@ -132,7 +112,7 @@ var generateTLPage = function(name, callback)
 		if(sidebar != '')
 			if(config['useSidebar'] == true) html += sidebar;
 
-		var pageHtml = generatePageContent( name, pageString );
+		pageHtml = generatePageContent( name, pageString );
 
 		if(pageHtml != -1) // -1 indicates that fs failed in generatePostsList
 			html += pageHtml;
@@ -157,7 +137,7 @@ var generatePost = function(name, callback)
 	var header = '';
 	var banner = '';
 	var footer = '';
-	var postsHtml = '';
+	var postHtml = '';
 	
 	var html = first + head + bodyStart;
 
@@ -183,7 +163,7 @@ var generatePost = function(name, callback)
 		if(sidebar != '')
 			if(config['useSidebar'] == true) html += sidebar;
 
-		var postHtml = generatePostContent( name, pageString );
+		postHtml = generatePostContent( name, pageString );
 
 		if(postHtml != -1) // -1 indicates that fs failed in generatePostsList
 			html += postHtml;
@@ -226,11 +206,14 @@ var generatePostContent = function(name, postString)
 	if(template)
 	{
 		var renderedContent = marked(postString);
+		var nextPrevLinks = generateNextPrevLinks(name)
 		var title = name.replace(/_/g, " ");
 
 		template = template.replace(/~postContent~/g, renderedContent);
 
 		template = template.replace(/~postTitle~/g, title);
+		
+		template = template.replace(/~nextPrevLinks~/g, nextPrevLinks);
 
 		return template;
 	}
@@ -351,6 +334,70 @@ var generatePaginationLinks = function(pageNum)
 	return prev + '\n' + next;
 }
 
+var generateNextPrevLinks = function(name) //TODO: Make this faster. It's based on bots.getPosts(), but not async
+{
+	var files = fs.readdirSync("../posts");
+
+	var next = '';
+	var prev = '';
+	var prevHtml = "<a class = 'cell' id = 'prevLink' href = '/posts/";
+	var nextHtml = "<a class = 'cell' id = 'nextLink' href = '/posts/";
+	
+	if(files != null)
+	{
+		for(var i = 0; i < files.length; i++)
+		{
+			if(files[i].substring(0, 1) == '_' || files[i] == '.DS_Store')
+			{
+				files.splice(i, 1); //remove the drafts or the .DS_Store's
+			}
+		}
+
+		files.sort(function(a, b) 
+		{
+           return fs.statSync("../posts/" + b).mtime.getTime() - fs.statSync("../posts/" + a).mtime.getTime();
+       	});
+
+		var index  = files.indexOf(name + '.md')
+
+		if(index != files.length-1) //if it's not the last post
+       		next = files[index + 1];
+       	
+		if(index != 0) //if it's not the first post
+       		prev = files[index - 1];
+
+
+ 		if(prev != '' && prev != undefined)
+ 		{
+ 			var url = prev.substring( 0, prev.indexOf('.') ); //remove file extension
+			var prevTitle = url.replace(/_/g, " ") //replace underscores with spaces
+
+ 			prevHtml += url + "'> <h3>" + prevTitle + '</h3> </a>';
+ 		}
+ 		else
+ 			prevHtml = "<a class = 'cell' id = 'prevLink' href = '/'><h3>Home</h3></a>";
+
+ 		if(next != '' && next != undefined)
+ 		{
+			var url = next.substring( 0, next.indexOf('.') ); //remove file extension
+			var nextTitle = url.replace(/_/g, " ") //replace underscores with spaces
+
+ 			nextHtml += url + "'> <h3>" + nextTitle + '</h3> </a>';
+ 		}
+ 		else
+ 			nextHtml = "<a class = 'cell' id = 'nextLink' href = '/'><h3>Home</h3></a>";
+
+ 		console.log("Next: " + nextHtml + ' Prev: ' + prevHtml);
+
+       	return prevHtml + '\n' + nextHtml;
+	}
+	else
+	{
+		console.log(err);
+		return({error: err});
+	}
+}
+
 var generateBanner = function(title)
 {
 	var banner = fs.readFileSync("../theme/cont/banner.html", "utf-8");
@@ -398,10 +445,16 @@ var generatePageLinks = function()
    	return retObj;
 }
 
+var loadConfigIntoGenerator = function(configObj)
+{
+	config = configObj;
+}
+
 
 module.exports.frontPage = generateFrontPage;
 module.exports.TLPage = generateTLPage;
 module.exports.post = generatePost;
+module.exports.loadConfigIntoGenerator = loadConfigIntoGenerator;
 
 
 
